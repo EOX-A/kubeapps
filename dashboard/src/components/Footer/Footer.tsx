@@ -4,6 +4,8 @@ import logo from "../../logo.svg";
 // Icons
 import Heart from "../../icons/Heart";
 
+import "./Footer.css";
+
 interface IFooterProps {
   appVersion: string;
 }
@@ -15,7 +17,7 @@ const Footer: React.SFC<IFooterProps> = props => {
         <div className="row collapse-b-phone-land align-center">
           <div className="col-6">
             <h4 className="inverse margin-reset">
-              <img src={logo} alt="Kubeapps logo" className="osFooter__logo" />
+              <img src={logo} alt="Kubeapps logo" className="osFooter__logo" width="140" />
             </h4>
             <p className="type-small margin-reset">
               Made with <Heart className="icon icon-small" /> by Bitnami and{" "}
@@ -29,6 +31,14 @@ const Footer: React.SFC<IFooterProps> = props => {
               .
             </p>
           </div>
+          {/* <div className="consortium">
+            <a href="https://www.sinergise.com/" target="blank"><img src={require("../../logos/logo_sinergise.svg")} width="180px" alt="Sinergise Logo" /></a>
+            <a href="https://www.brockmann-consult.de/" target="blank"><img src={require("../../logos/logo_brockmann.png")} width="120px" alt="Brockmann Consult Logo" /></a>
+            <a href="https://eox.at" target="blank"><img src={require("../../logos/logo_eox.svg")} width="140px" alt="EOX Logo" /></a>
+            <a href="http://www.gisat.cz" target="blank"><img src={require("../../logos/logo_gisat.svg")} width="130px" alt="Gisat Logo" /></a>
+            <a href="https://www.planet.com/" target="blank"><img src={require("../../logos/logo_planet.png")} width="120px" alt="Planet Logo" /></a>
+            <a href="https://www.sentinel-hub.com/" target="blank"><img src={require("../../logos/logo_sentinelhub.png")} width="200px" alt="Sentinel Hub Logo" /></a>
+          </div> */}
           <div className="col-6 text-r">
             <a href="https://twitter.com/kubeapps" className="socialIcon margin-small">
               <svg
