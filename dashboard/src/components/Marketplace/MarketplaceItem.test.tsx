@@ -6,7 +6,7 @@ import * as React from "react";
 import { IChart, IRepo } from "../../shared/types";
 import { CardIcon } from "../Card";
 import InfoCard from "../InfoCard";
-import CatalogItem from "./CatalogItem";
+import MarketplaceItem from "./MarketplaceItem";
 
 jest.mock("../../placeholder.png", () => "placeholder.png");
 
@@ -31,14 +31,14 @@ const defaultChart = {
 } as IChart;
 
 it("should render an item", () => {
-  const wrapper = shallow(<CatalogItem chart={defaultChart} />);
+  const wrapper = shallow(<MarketplaceItem chart={defaultChart} />);
   expect(wrapper).toMatchSnapshot();
 });
 
 it("should use the default placeholder for the icon if it doesn't exist", () => {
   const chartWithoutIcon = _.cloneDeep(defaultChart);
   chartWithoutIcon.attributes.icon = undefined;
-  const wrapper = shallow(<CatalogItem chart={chartWithoutIcon} />);
+  const wrapper = shallow(<MarketplaceItem chart={chartWithoutIcon} />);
   // Importing an image returns "undefined"
   expect(
     wrapper
@@ -52,7 +52,7 @@ it("should use the default placeholder for the icon if it doesn't exist", () => 
 it("should place a dash if the version is not avaliable", () => {
   const chartWithoutVersion = _.cloneDeep(defaultChart);
   chartWithoutVersion.relationships.latestChartVersion.data.app_version = "";
-  const wrapper = shallow(<CatalogItem chart={chartWithoutVersion} />);
+  const wrapper = shallow(<MarketplaceItem chart={chartWithoutVersion} />);
   expect(
     wrapper
       .find(InfoCard)
@@ -65,7 +65,7 @@ it("should place a dash if the version is not avaliable", () => {
 it("show the chart description", () => {
   const chartWithDescription = _.cloneDeep(defaultChart);
   chartWithDescription.attributes.description = "This is a description";
-  const wrapper = shallow(<CatalogItem chart={chartWithDescription} />);
+  const wrapper = shallow(<MarketplaceItem chart={chartWithDescription} />);
   expect(
     wrapper
       .find(InfoCard)
@@ -80,7 +80,7 @@ context("when the description is too long", () => {
     const chartWithDescription = _.cloneDeep(defaultChart);
     chartWithDescription.attributes.description =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices velit leo, quis pharetra mi vestibulum quis.";
-    const wrapper = shallow(<CatalogItem chart={chartWithDescription} />);
+    const wrapper = shallow(<MarketplaceItem chart={chartWithDescription} />);
     expect(
       wrapper
         .find(InfoCard)

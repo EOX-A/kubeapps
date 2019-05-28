@@ -5,9 +5,9 @@ import placeholder from "../../placeholder.png";
 import { IChart } from "../../shared/types";
 import InfoCard from "../InfoCard";
 
-import "./CatalogItem.css";
+import "./MarketplaceItem.css";
 
-interface ICatalogItemProps {
+interface IMarketplaceItemProps {
   chart: IChart;
 }
 
@@ -22,13 +22,13 @@ function trimDescription(desc: string): string {
   return desc;
 }
 
-const CatalogItem: React.SFC<ICatalogItemProps> = props => {
+const MarketplaceItem: React.SFC<IMarketplaceItemProps> = props => {
   const { chart } = props;
   const { icon, name, repo } = chart.attributes;
   const iconSrc = icon ? `api/chartsvc/${icon}` : placeholder;
   const latestAppVersion = chart.relationships.latestChartVersion.data.app_version;
   const repoTag = (
-    <Link className="ListItem__content__info_tag_link" to={`/catalog/${repo.name}`}>
+    <Link className="ListItem__content__info_tag_link" to={`/marketplace/${repo.name}`}>
       {repo.name}
     </Link>
   );
@@ -51,4 +51,4 @@ const CatalogItem: React.SFC<ICatalogItemProps> = props => {
   );
 };
 
-export default CatalogItem;
+export default MarketplaceItem;

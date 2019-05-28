@@ -9,9 +9,9 @@ import { MessageAlert } from "../ErrorAlert";
 import LoadingWrapper from "../LoadingWrapper";
 import PageHeader from "../PageHeader";
 import SearchFilter from "../SearchFilter";
-import CatalogItem from "./CatalogItem";
+import MarketplaceItem from "./MarketplaceItem";
 
-interface ICatalogProps {
+interface IMarketplaceProps {
   charts: IChartState;
   repo: string;
   filter: string;
@@ -19,12 +19,12 @@ interface ICatalogProps {
   pushSearchFilter: (filter: string) => RouterAction;
 }
 
-interface ICatalogState {
+interface IMarketplaceState {
   filter: string;
 }
 
-class Catalog extends React.Component<ICatalogProps, ICatalogState> {
-  public state: ICatalogState = {
+class Marketplace extends React.Component<IMarketplaceProps, IMarketplaceState> {
+  public state: IMarketplaceState = {
     filter: "",
   };
 
@@ -34,7 +34,7 @@ class Catalog extends React.Component<ICatalogProps, ICatalogState> {
     fetchCharts(repo);
   }
 
-  public componentWillReceiveProps(nextProps: ICatalogProps) {
+  public componentWillReceiveProps(nextProps: IMarketplaceProps) {
     if (nextProps.filter !== this.state.filter) {
       this.setState({ filter: nextProps.filter });
     }
@@ -60,11 +60,11 @@ class Catalog extends React.Component<ICatalogProps, ICatalogState> {
         />
       );
     }
-    const chartItems = items.map(c => <CatalogItem key={c.id} chart={c} />);
+    const chartItems = items.map(c => <MarketplaceItem key={c.id} chart={c} />);
     return (
-      <section className="Catalog">
+      <section className="Marketplace">
         <PageHeader>
-          <h1>Catalog</h1>
+          <h1>Marketplace</h1>
           <SearchFilter
             className="margin-l-big"
             placeholder="search charts..."
@@ -91,4 +91,4 @@ class Catalog extends React.Component<ICatalogProps, ICatalogState> {
   };
 }
 
-export default Catalog;
+export default Marketplace;

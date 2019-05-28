@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import "../Catalog/CatalogItem.css";
 import InfoCard from "../InfoCard";
+import "../Marketplace/MarketplaceItem.css";
 import "./ServiceInstanceCard.css";
 
 export interface IServiceInstanceCardProps {

@@ -38,13 +38,8 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
       to: "/apps",
     },
     {
-      children: "Catalog",
-      to: "/catalog",
-    },
-    {
-      children: "Service Instances (alpha)",
-      namespaced: true,
-      to: "/services/instances",
+      children: "Marketplace",
+      to: "/marketplace",
     },
   ];
 
@@ -120,9 +115,6 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
                     <ul role="menu" aria-label="Products" className={submenu}>
                       <li role="none">
                         <NavLink to="/config/repos">App Repositories</NavLink>
-                      </li>
-                      <li role="none">
-                        <NavLink to="/config/brokers">Service Brokers</NavLink>
                       </li>
                     </ul>
                   </li>

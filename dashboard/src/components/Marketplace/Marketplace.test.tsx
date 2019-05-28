@@ -8,7 +8,7 @@ import { CardGrid } from "../Card";
 import { MessageAlert } from "../ErrorAlert";
 import PageHeader from "../PageHeader";
 import SearchFilter from "../SearchFilter";
-import Catalog from "./Catalog";
+import Marketplace from "./Marketplace";
 
 const defaultChartState = {
   isFetching: false,
@@ -25,16 +25,16 @@ const defaultProps = {
 };
 
 it("propagates the filter from the props", () => {
-  const wrapper = shallow(<Catalog {...defaultProps} filter="foo" />);
+  const wrapper = shallow(<Marketplace {...defaultProps} filter="foo" />);
   expect(wrapper.state("filter")).toBe("foo");
 });
 
 describe("renderization", () => {
   context("when no charts", () => {
     it("should render an error", () => {
-      const wrapper = shallow(<Catalog {...defaultProps} />);
+      const wrapper = shallow(<Marketplace {...defaultProps} />);
       expect(wrapper.find(MessageAlert)).toExist();
-      expect(wrapper.find(".Catalog")).not.toExist();
+      expect(wrapper.find(".Marketplace")).not.toExist();
       expect(
         wrapper
           .find(MessageAlert)
@@ -47,7 +47,7 @@ describe("renderization", () => {
 
   context("when fetching apps", () => {
     itBehavesLike("aLoadingComponent", {
-      component: Catalog,
+      component: Marketplace,
       props: { ...defaultProps, charts: { isFetching: true, items: [] } },
     });
   });
@@ -63,7 +63,7 @@ describe("renderization", () => {
     } as IChartState;
 
     it("should render the list of charts", () => {
-      const wrapper = shallow(<Catalog {...defaultProps} charts={chartState} />);
+      const wrapper = shallow(<Marketplace {...defaultProps} charts={chartState} />);
 
       expect(wrapper.find(MessageAlert)).not.toExist();
       expect(wrapper.find(PageHeader)).toExist();
@@ -89,7 +89,7 @@ describe("renderization", () => {
 
     it("should filter apps", () => {
       // Filter "foo" app
-      const wrapper = shallow(<Catalog {...defaultProps} charts={chartState} filter="foo" />);
+      const wrapper = shallow(<Marketplace {...defaultProps} charts={chartState} filter="foo" />);
 
       const cardGrid = wrapper.find(CardGrid);
       expect(cardGrid).toExist();
