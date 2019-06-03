@@ -7,9 +7,10 @@ import { escapeRegExp } from "../../shared/utils";
 import { CardGrid } from "../Card";
 import { MessageAlert } from "../ErrorAlert";
 import LoadingWrapper from "../LoadingWrapper";
-import PageHeader from "../PageHeader";
 import SearchFilter from "../SearchFilter";
 import MarketplaceItem from "./MarketplaceItem";
+
+import "./Marketplace.css";
 
 interface IMarketplaceProps {
   charts: IChartState;
@@ -63,16 +64,19 @@ class Marketplace extends React.Component<IMarketplaceProps, IMarketplaceState> 
     const chartItems = items.map(c => <MarketplaceItem key={c.id} chart={c} />);
     return (
       <section className="Marketplace">
-        <PageHeader>
-          <h1>Market Place</h1>
-          <SearchFilter
-            className="margin-l-big"
-            placeholder="search charts..."
-            onChange={this.handleFilterQueryChange}
-            value={this.state.filter}
-            onSubmit={pushSearchFilter}
-          />
-        </PageHeader>
+        <div className="main-header-content">
+          <div className="main-header-content__slogan">
+            <p>Discover &amp; launch great cube-enabled apps</p>
+          </div>
+          <div className="main-header-search">
+            <SearchFilter
+              placeholder="Search charts..."
+              onChange={this.handleFilterQueryChange}
+              value={this.state.filter}
+              onSubmit={pushSearchFilter}
+            />
+          </div>
+        </div>
         <LoadingWrapper loaded={!isFetching}>
           <CardGrid>{chartItems}</CardGrid>
         </LoadingWrapper>

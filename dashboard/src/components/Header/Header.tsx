@@ -37,10 +37,6 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
       namespaced: true,
       to: "/apps",
     },
-    {
-      children: "Market Place",
-      to: "/marketplace",
-    },
   ];
 
   constructor(props: any) {
@@ -66,11 +62,11 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
     }`;
 
     return (
-      <section className="gradient-135-brand type-color-reverse type-color-reverse-anchor-reset">
+      <section className="header-bg type-color-reverse type-color-reverse-anchor-reset">
         <div className="container">
           <header className={header}>
             <div className="header__logo">
-              <NavLink to="/">
+              <NavLink to="/marketplace">
                 <img src={logo} alt="Kubeapps logo" width="140" />
               </NavLink>
             </div>
