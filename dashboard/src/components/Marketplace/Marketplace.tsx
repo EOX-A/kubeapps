@@ -64,7 +64,7 @@ class Marketplace extends React.Component<IMarketplaceProps, IMarketplaceState> 
     return (
       <section className="Marketplace">
         <PageHeader>
-          <h1>Marketplace</h1>
+          <h1>Market Place</h1>
           <SearchFilter
             className="margin-l-big"
             placeholder="search charts..."

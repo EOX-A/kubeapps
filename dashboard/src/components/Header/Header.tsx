@@ -32,13 +32,13 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
   // Defines the route
   private readonly links: IHeaderLinkProps[] = [
     {
-      children: "Applications",
+      children: "My Applications",
       exact: true,
       namespaced: true,
       to: "/apps",
     },
     {
-      children: "Marketplace",
+      children: "Market Place",
       to: "/marketplace",
     },
   ];
