@@ -6,7 +6,6 @@ import itBehavesLike from "../../shared/specs";
 import { IChart, IChartState } from "../../shared/types";
 import { CardGrid } from "../Card";
 import { MessageAlert } from "../ErrorAlert";
-import PageHeader from "../PageHeader";
 import SearchFilter from "../SearchFilter";
 import Marketplace from "./Marketplace";
 
@@ -66,7 +65,6 @@ describe("renderization", () => {
       const wrapper = shallow(<Marketplace {...defaultProps} charts={chartState} />);
 
       expect(wrapper.find(MessageAlert)).not.toExist();
-      expect(wrapper.find(PageHeader)).toExist();
       expect(wrapper.find(SearchFilter)).toExist();
 
       const cardGrid = wrapper.find(CardGrid);
