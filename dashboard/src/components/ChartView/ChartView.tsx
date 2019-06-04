@@ -8,8 +8,10 @@ import ChartMaintainers from "./ChartMaintainers";
 import ChartReadme from "./ChartReadme";
 import ChartVersionsList from "./ChartVersionsList";
 import "./ChartView.css";
+// import { authenticate } from "actions/auth";
 
 interface IChartViewProps {
+  authenticated: boolean;
   chartID: string;
   fetchChartVersionsAndSelectVersion: (id: string, version?: string) => void;
   isFetching: boolean;
@@ -19,6 +21,7 @@ interface IChartViewProps {
   getChartReadme: (version: string) => any;
   namespace: string;
   version: string | undefined;
+  hideDeployButton: boolean;
 }
 
 class ChartView extends React.Component<IChartViewProps> {
@@ -45,7 +48,14 @@ class ChartView extends React.Component<IChartViewProps> {
   }
 
   public render() {
-    const { isFetching, getChartReadme, namespace, chartID } = this.props;
+    const {
+      authenticated,
+      isFetching,
+      getChartReadme,
+      namespace,
+      chartID,
+      hideDeployButton,
+    } = this.props;
     const { version, readme, error, readmeError, versions } = this.props.selected;
     if (error) {
       return <ErrorSelector error={error} resource={`Chart ${chartID}`} />;
@@ -63,8 +73,10 @@ class ChartView extends React.Component<IChartViewProps> {
           repo={chartAttrs.repo.name}
           version={version}
           namespace={namespace}
+          hideDeployButton={hideDeployButton}
         />
         <main>
+          {authenticated}
           <div className="container container-fluid">
             <div className="row">
               <div className="col-9 ChartView__readme-container">

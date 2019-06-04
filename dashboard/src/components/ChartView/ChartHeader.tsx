@@ -13,11 +13,12 @@ interface IChartHeaderProps {
   description: string;
   version: IChartVersion;
   namespace: string;
+  hideDeployButton: boolean;
 }
 
 class ChartHeader extends React.Component<IChartHeaderProps> {
   public render() {
-    const { id, icon, repo, description, version, namespace } = this.props;
+    const { id, icon, repo, description, version, namespace, hideDeployButton } = this.props;
     const appVersion = version.attributes.app_version;
     return (
       <header>
@@ -36,7 +37,7 @@ class ChartHeader extends React.Component<IChartHeaderProps> {
             </div>
           </div>
           <div className="col-2 ChartHeader__button">
-            <ChartDeployButton version={version} namespace={namespace} />
+            {!hideDeployButton && <ChartDeployButton version={version} namespace={namespace} />}
           </div>
         </div>
         <hr />
