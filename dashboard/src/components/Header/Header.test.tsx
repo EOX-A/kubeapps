@@ -22,7 +22,10 @@ it("renders the header links and titles", () => {
   const wrapper = shallow(<Header {...defaultProps} />);
   const menubar = wrapper.find(".header__nav__menu").first();
   const items = menubar.children().map(p => p.props().children.props);
-  const expectedItems = [{ children: "My Applications", to: "/apps" }];
+  const expectedItems = [
+    { children: "Applications", to: "/marketplace" },
+    { children: "Services", to: "/services/instances" },
+  ];
   items.forEach((item, index) => {
     expect(item.children).toBe(expectedItems[index].children);
     expect(item.to).toBe(expectedItems[index].to);

@@ -141,10 +141,10 @@ class ServiceInstanceList extends React.PureComponent<
         <PageHeader>
           <div className="col-8">
             <div className="row collapse-b-phone-land">
-              <h1>Service Instances</h1>
+              <h1>Services</h1>
               <SearchFilter
                 className="margin-l-big "
-                placeholder="search instances..."
+                placeholder="search services..."
                 onChange={this.handleFilterQueryChange}
                 value={this.state.filter}
                 onSubmit={pushSearchFilter}
@@ -157,16 +157,6 @@ class ServiceInstanceList extends React.PureComponent<
             </Link>
           </div>
         </PageHeader>
-        <MessageAlert level="warning">
-          <div>
-            Service Catalog integration is under heavy development. If you find an issue please
-            report it{" "}
-            <a target="_blank" href="https://github.com/kubeapps/kubeapps/issues">
-              {" "}
-              here.
-            </a>
-          </div>
-        </MessageAlert>
         <LoadingWrapper loaded={loaded}>
           <main>{body}</main>
         </LoadingWrapper>

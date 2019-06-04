@@ -7,6 +7,7 @@ import AppNewContainer from "../../containers/AppNewContainer";
 import AppUpgradeContainer from "../../containers/AppUpgradeContainer";
 import AppViewContainer from "../../containers/AppViewContainer";
 import ChartViewContainer from "../../containers/ChartViewContainer";
+import LandingPageContainer from "../../containers/LandingPageContainer";
 import LoginFormContainer from "../../containers/LoginFormContainer";
 import MarketplaceContainer from "../../containers/MarketplaceContainer";
 import PrivateRouteContainer from "../../containers/PrivateRouteContainer";
@@ -28,8 +29,6 @@ const privateRoutes: {
   "/apps/ns/:namespace/upgrade/:releaseName": AppUpgradeContainer,
   "/marketplace": MarketplaceContainer,
   "/marketplace/:repo": MarketplaceContainer,
-  "/charts/:repo/:id": ChartViewContainer,
-  "/charts/:repo/:id/versions/:version": ChartViewContainer,
   "/config/brokers": ServiceBrokerListContainer,
   "/config/repos": RepoListContainer,
   "/services/brokers/:brokerName/classes/:className": ServiceClassViewContainer,
@@ -42,7 +41,10 @@ const privateRoutes: {
 const routes: {
   [route: string]: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
 } = {
+  "/landingpage": LandingPageContainer,
   "/login": LoginFormContainer,
+  "/charts/:repo/:id": ChartViewContainer,
+  "/charts/:repo/:id/versions/:version": ChartViewContainer,
 };
 
 interface IRoutesProps extends IRouteComponentPropsAndRouteProps {
@@ -71,7 +73,7 @@ class Routes extends React.Component<IRoutesProps> {
     );
   }
   private rootNamespacedRedirect = (props: any) => {
-    return <Redirect to={`/apps/ns/${this.props.namespace}`} />;
+    return <Redirect to={"/landingpage"} />;
   };
 }
 

@@ -55,7 +55,7 @@ class AppList extends React.Component<IAppListProps, IAppListState> {
         <PageHeader>
           <div className="col-9">
             <div className="row">
-              <h1>Applications</h1>
+              <h1>Dashboard</h1>
               {!error && this.appListControls()}
             </div>
           </div>

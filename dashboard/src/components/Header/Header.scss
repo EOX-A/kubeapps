@@ -1,3 +1,8 @@
+.header {
+  justify-content: space-between;
+  min-height: 62px;
+}
+
 .header .header__nav-config {
   justify-content: flex-end;
   flex: inherit;

@@ -48,7 +48,7 @@ class PrivateRoute extends React.Component<IPrivateRouteProps> {
         </Modal>
       );
     }
-    return <Redirect to={{ pathname: "/login", state: { from: props.location } }} />;
+    return <Redirect to={{ pathname: "/", state: { from: props.location } }} />;
   };
 
   private reload() {

@@ -16,13 +16,18 @@ interface IRouteProps {
   };
 }
 
-function mapStateToProps({ charts, namespace }: IStoreState, { match: { params } }: IRouteProps) {
+function mapStateToProps(
+  { auth: { authenticated, oidcAuthenticated }, charts, namespace }: IStoreState,
+  { match: { params } }: IRouteProps,
+) {
   return {
+    authenticated,
     chartID: chartID(params),
     isFetching: charts.isFetching,
     namespace: namespace.current,
     selected: charts.selected,
     version: params.version,
+    hideDeployButton: oidcAuthenticated,
   };
 }
 

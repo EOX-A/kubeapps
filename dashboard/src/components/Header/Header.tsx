@@ -7,7 +7,7 @@ import HeaderLink, { IHeaderLinkProps } from "./HeaderLink";
 import NamespaceSelector from "./NamespaceSelector";
 
 // Icons
-import { LogOut, Settings } from "react-feather";
+import { LogIn, LogOut, Settings } from "react-feather";
 
 import "react-select/dist/react-select.css";
 import "./Header.css";
@@ -32,10 +32,17 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
   // Defines the route
   private readonly links: IHeaderLinkProps[] = [
     {
-      children: "My Applications",
-      exact: true,
+      children: "Dashboard",
+      to: "/apps/ns/default",
+    },
+    {
+      children: "Applications",
+      to: "/marketplace",
+    },
+    {
+      children: "Services",
       namespaced: true,
-      to: "/apps",
+      to: "/services/instances",
     },
   ];
 
@@ -66,7 +73,7 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
         <div className="container">
           <header className={header}>
             <div className="header__logo">
-              <NavLink to="/marketplace">
+              <NavLink to="/apps/ns/default">
                 <img src={logo} alt="Kubeapps logo" width="140" />
               </NavLink>
             </div>
@@ -117,10 +124,43 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
                   {!hideLogoutLink && (
                     <li>
                       <NavLink to="#" onClick={this.handleLogout}>
-                        <LogOut size={16} className="icon margin-r-tiny" /> Logout
+                        <LogOut size={16} className="icon margin-r-tiny" /> Log out
                       </NavLink>
                     </li>
                   )}
+                </ul>
+              </div>
+            )}
+            {!showNav && (
+              <nav className="header__nav">
+                <button
+                  className="header__nav__hamburguer"
+                  aria-label="Menu"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  onClick={this.toggleMobile}
+                >
+                  <div />
+                  <div />
+                  <div />
+                </button>
+                {/* <ul className="header__nav__menu" role="menubar">
+                  {this.links.map(link => (
+                    <li key={link.to}>
+                      <HeaderLink {...link} currentNamespace={namespace.current} />
+                    </li>
+                  ))}
+                </ul> */}
+              </nav>
+            )}
+            {!showNav && (
+              <div className="header__nav header__nav-config">
+                <ul className="header__nav__menu" role="menubar">
+                  <li>
+                    <NavLink to="/login">
+                      <LogIn size={16} className="icon margin-r-tiny" /> Log in
+                    </NavLink>
+                  </li>
                 </ul>
               </div>
             )}
