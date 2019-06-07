@@ -123,6 +123,11 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
                   </li>
                   {!hideLogoutLink && (
                     <li>
+                      <NavLink to="/profile">Profile</NavLink>
+                    </li>
+                  )}
+                  {!hideLogoutLink && (
+                    <li>
                       <NavLink to="#" onClick={this.handleLogout}>
                         <LogOut size={16} className="icon margin-r-tiny" /> Log out
                       </NavLink>

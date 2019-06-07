@@ -11,6 +11,7 @@ import LandingPageContainer from "../../containers/LandingPageContainer";
 import LoginFormContainer from "../../containers/LoginFormContainer";
 import MarketplaceContainer from "../../containers/MarketplaceContainer";
 import PrivateRouteContainer from "../../containers/PrivateRouteContainer";
+import ProfileContainer from "../../containers/ProfileContainer";
 import RepoListContainer from "../../containers/RepoListContainer";
 import ServiceBrokerListContainer from "../../containers/ServiceBrokerListContainer";
 import ServiceClassListContainer from "../../containers/ServiceClassListContainer";
@@ -31,6 +32,7 @@ const privateRoutes: {
   "/marketplace/:repo": MarketplaceContainer,
   "/config/brokers": ServiceBrokerListContainer,
   "/config/repos": RepoListContainer,
+  "/profile": ProfileContainer,
   "/services/brokers/:brokerName/classes/:className": ServiceClassViewContainer,
   "/services/brokers/:brokerName/instances/ns/:namespace/:instanceName": ServiceInstanceViewContainer,
   "/services/classes": ServiceClassListContainer,
