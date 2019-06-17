@@ -7,7 +7,7 @@ import HeaderLink, { IHeaderLinkProps } from "./HeaderLink";
 import NamespaceSelector from "./NamespaceSelector";
 
 // Icons
-import { LogIn, LogOut, Settings } from "react-feather";
+import { LogIn, LogOut, Settings, User } from "react-feather";
 
 import "react-select/dist/react-select.css";
 import "./Header.css";
@@ -123,7 +123,9 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
                   </li>
                   {!hideLogoutLink && (
                     <li>
-                      <NavLink to="/profile">Profile</NavLink>
+                      <NavLink to="/profile">
+                        <User size={16} className="icon margin-r-tiny" /> Profile
+                      </NavLink>
                     </li>
                   )}
                   {!hideLogoutLink && (
