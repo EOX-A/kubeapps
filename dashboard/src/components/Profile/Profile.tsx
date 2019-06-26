@@ -47,7 +47,7 @@ class Profile extends React.Component<IProfileProps, IProfileState> {
               </div>
             </div>
             <div className="row">
-              <div>
+              <div className="padding-big shadow-1">
                 <label htmlFor="username">Username</label>
                 <input name="username" id="username" placeholder="jdoe" />
                 <label htmlFor="first">First Name</label>
@@ -61,8 +61,18 @@ class Profile extends React.Component<IProfileProps, IProfileState> {
             </div>
           </div>
           <div className="col-6">
-            <h2>Usage Statistics</h2>
-            <p>Hello World!</p>
+            <div className="row">
+              <h2>Usage Statistics</h2>
+              <div className="card shadow-1">
+                <p className="margin-reset">
+                  <b>Plan</b>
+                </p>
+                <h3 className="card__title">Free Plan</h3>
+                <p className="card__actions">
+                  <input type="submit" value="Change Plan" className="button button-accent" />
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
