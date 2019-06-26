@@ -7,6 +7,7 @@ import AppNewContainer from "../../containers/AppNewContainer";
 import AppUpgradeContainer from "../../containers/AppUpgradeContainer";
 import AppViewContainer from "../../containers/AppViewContainer";
 import BYOCContainer from "../../containers/BYOCContainer";
+import BYOCViewContainer from "../../containers/BYOCViewContainer";
 import ChartViewContainer from "../../containers/ChartViewContainer";
 import LandingPageContainer from "../../containers/LandingPageContainer";
 import LoginFormContainer from "../../containers/LoginFormContainer";
@@ -30,6 +31,7 @@ const privateRoutes: {
   "/apps/ns/:namespace/new/:repo/:id/versions/:version": AppNewContainer,
   "/apps/ns/:namespace/upgrade/:releaseName": AppUpgradeContainer,
   "/byoc": BYOCContainer,
+  "/byoc/collection/test": BYOCViewContainer,
   "/marketplace": MarketplaceContainer,
   "/marketplace/:repo": MarketplaceContainer,
   "/config/brokers": ServiceBrokerListContainer,

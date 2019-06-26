@@ -37,7 +37,7 @@ class BYOC extends React.Component<IBYOCProps, IBYOCState> {
             </div>
           </div>
           <div className="col-3 text-r align-center">
-            <Link to="/catalog">
+            <Link to="/byoc/collection/test">
               <button className="deploy-button button button-accent">New Collection</button>
             </Link>
           </div>
@@ -47,7 +47,7 @@ class BYOC extends React.Component<IBYOCProps, IBYOCState> {
             <div className="row collapse-2-b-desktop collapse-b-tablet">
               <div className="col-3">
                 <div className="card card-action shadow-1">
-                  <h3 className="card__title">Collection Name</h3>
+                  <h3 className="card__title">Test Collection</h3>
                   <p className="margin-reset">
                     <b>Bucket: bucket-name</b>
                   </p>
