@@ -136,6 +136,11 @@ class BYOCView extends React.Component<IBYOCViewProps, IBYOCViewState> {
                     </tr>
                   </tbody>
                 </table>
+                <div className="text-r">
+                  <Link to="/byoc/collection/test">
+                    <button className="deploy-button button button-accent">Add tile</button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
