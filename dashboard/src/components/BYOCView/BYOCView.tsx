@@ -43,20 +43,20 @@ class BYOCView extends React.Component<IBYOCViewProps, IBYOCViewState> {
           </div>
         </PageHeader>
         <main>
-          <div className=" padding-v-big">
+          <div className="padding-v-big">
             <div className="row collapse-2-b-desktop collapse-b-tablet">
               <div className="col-6">
                 <p>Id: 1cd162e4-ddaf-4e30-b082-063b3e92f9c2</p>
                 <hr />
                 <form action="">
-                  <h5>Collection name</h5>
+                  <h5>Collection Name</h5>
                   <input name="name" id="test" value="Test Collection" />
                   <div className="text-r">
-                    <input type="submit" value="Save Changes" className="button button-accent" />
+                    <input type="submit" value="Save changes" className="button button-accent" />
                   </div>
                 </form>
                 <hr />
-                <h5>Collection setup</h5>
+                <h5>Collection Setup</h5>
                 <table>
                   <thead>
                     <tr>
@@ -105,7 +105,7 @@ class BYOCView extends React.Component<IBYOCViewProps, IBYOCViewState> {
                 </table>
               </div>
               <div className="col-6">
-                <h3>Collection tiles</h3>
+                <h3>Collection Tiles</h3>
                 <hr />
                 <table>
                   <tbody>
